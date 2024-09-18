@@ -1,0 +1,86 @@
+/* Mobile first styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    z-index: 1000;
+    box-sizing: border-box; /* Ser till att padding räknas in i bredden */
+  }
+  
+  
+  
+  .logo h1 {
+    font-size: 1.5rem;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: #333;
+    padding: 20px;
+    display: none;
+  }
+  
+  .nav-links.open {
+    display: flex;
+  }
+  
+  .nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+  }
+  
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centrerar bars vertikalt */
+    align-items: center;     /* Ser till att bars är centrerade horisontellt */
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    margin-right: 10px;      /* Lägger till lite marginal från högerkant */
+  }
+  
+  .hamburger .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+  }
+  
+  @media (min-width: 768px) {
+    .hamburger {
+      display: none;
+    }
+  
+    .nav-links {
+      display: flex;
+      flex-direction: row;
+      position: static;
+      padding: 0;
+      gap: 20px;
+    }  
+  
+    .logo h1 {
+      font-size: 2rem;
+    }
+  
+    .nav-links li a {
+      font-size: 1.2rem;
+    }
+  }
