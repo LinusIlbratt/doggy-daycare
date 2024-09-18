@@ -1,8 +1,18 @@
-# React + Vite
+# Doggy Daycare
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Projektbeskrivning
+Doggy Daycare är en webbapplikation byggd med React och Vite. Applikationen låter användare se en katalog över hundar som besöker dagiset, samt detaljerad information om varje hund.
 
-Currently, two official plugins are available:
+## Funktioner
+- Välkomstsida
+- Katalogsida med alla registrerade hundar
+- Detaljerad sida för varje hund
+- Sök- och filterfunktioner (kommande)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
+För att köra projektet lokalt:
+
+1. Klona detta repository:
+   (terminal)
+   git clone https://github.com/LinusIlbratt/doggy-daycare.git
+vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
