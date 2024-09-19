@@ -20,8 +20,8 @@ function Navbar() {
                 <span className='bar'></span>
             </button>
             <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
-             <li><Link to="/">Hem</Link></li>
-             <li><Link to="/catalog">Katalog</Link></li>
+             <li><Link to="/">Home</Link></li>
+             <li><Link to="/catalog">Catalog</Link></li>
             </ul>
         </nav>
     );

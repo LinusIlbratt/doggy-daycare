@@ -47,20 +47,20 @@
   .hamburger {
     display: flex;
     flex-direction: column;
-    justify-content: center; /* Centrerar bars vertikalt */
-    align-items: center;     /* Ser till att bars är centrerade horisontellt */
+    justify-content: center; /* centers the bars vertical */
+    align-items: center;     /* centers the bars horizontal */
     cursor: pointer;
     background: none;
     border: none;
     padding: 0;
-    margin-right: 10px;      /* Lägger till lite marginal från högerkant */
+    margin-right: 5px;     
   }
   
   .hamburger .bar {
     width: 25px;
     height: 3px;
     background-color: white;
-    margin: 4px 0;
+    margin: 4px 2px;
   }
   
   @media (min-width: 768px) {
