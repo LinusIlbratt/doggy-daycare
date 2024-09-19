@@ -15,30 +15,30 @@ function DogList() {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        setDogs(data.record);  // Spara data från API i state
-        setLoading(false);     // När data har hämtats, sätt loading till false
+        setDogs(data.record);  // Save data from API in a state
+        setLoading(false);     // When data is being collected, set loading to false
       } catch (error) {
         setError(error.message);
-        setLoading(false);     // Om ett fel uppstår, visa felmeddelande
+        setLoading(false);     // If an error occurs, show msg
       }
     };
 
-    fetchDogs();  // Kör funktionen när komponenten mountas
-  }, []);  // Tom beroendelista så att useEffect bara körs en gång
+    fetchDogs();  // Run the function when the component is mounted
+  }, []);  // Empty dependecy list so useEffect only runs one time
 
   if (loading) {
-    return <p>Loading...</p>;  // Visa "Loading" medan data hämtas
+    return <p>Loading...</p>;  // Show "Loading" while data is being fetched
   }
 
   if (error) {
-    return <p>Error: {error}</p>;  // Visa felmeddelande om något går fel
+    return <p>Error: {error}</p>;  // Show error msg if something goes wrong
   }
 
   return (
     <div>
       {dogs.map((dog) => (
         <DogCard
-          key={dog.chipNumber}   // Använd chipNumber som unikt ID
+          key={dog.chipNumber}   // Use this as a unique ID?
           name={dog.name}
           sex={dog.sex}
           breed={dog.breed}
