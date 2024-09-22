@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import React, { useState, useEffect } from 'react';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import Catalog from './pages/Catalog';
+import DogDetails from './pages/DogDetails';
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [dogs, setDogs] = useState([]);
+
+  
+  useEffect(() => {
+    
+    const fetchDogs = async () => {
+      try {
+        const response = await fetch('https://api.jsonbin.io/v3/b/66ea8f94ad19ca34f8a82e28');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setDogs(data.record);  
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchDogs();  
+  }, []);  
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <Router>
+      <div className='App'>
+        <Navbar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/catalog' element={<Catalog dogs={dogs} />} />
+          <Route path='/dog/:chipNumber' element={<DogDetails dogs={dogs} />} />
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </Router>
   )
 }
 
-export default App
+export default App;
+
