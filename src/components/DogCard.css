@@ -1,8 +1,8 @@
 .dog-card {
     background-color: #efefef;
-    width: 90%;  /* Tar upp 90% av skärmens bredd för mobil */
-    max-width: 300px;  /* Maximal bredd på varje kort */
-    margin: 10px auto;  /* Centrerar korten och ger utrymme mellan dem */
+    width: 90%;  
+    max-width: 300px;  
+    margin: 10px auto; 
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);

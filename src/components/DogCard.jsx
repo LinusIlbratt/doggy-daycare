@@ -11,7 +11,7 @@ function DogCard({ name, breed, age, sex, chipNumber, img }) {
             <p>Age: {age ? `${age} years` : 'Unknown Age'}</p>
             <p>Sex: {sex || 'Unknown Sex'}</p>
 
-            <Link to={`/dog/${chipNumber}`}>View Details</Link> {/* Länka till DogDetails */}
+            <Link to={`/dog/${chipNumber}`}>View Details</Link>
         </div>
     );
 }

@@ -1,54 +1,71 @@
 import React, { useState } from 'react';
 import DogCard from '../components/DogCard';
+import TextFilter from '../components/TextFilter';
+import BreedFilter from '../components/BreedFilter';
+import OtherFilters from '../components/OtherFilters';
+import './Catalog.css';
 
 function Catalog({ dogs }) {
-  const [breedFilter, setBreedFilter] = useState('');  // Enkelt state för att filtrera ras
-
-  // Hantera förändringar i sökfältet
-  const handleBreedChange = (e) => {
-    setBreedFilter(e.target.value);
-  };
+  const [nameFilter, setNameFilter] = useState('');
+  const [breedFilter, setBreedFilter] = useState('');
+  const [ageFilter, setAgeFilter] = useState('');
+  const [sexFilter, setSexFilter] = useState('');
 
   const filteredDogs = dogs.filter((dog) => {
-    return dog.breed.toLowerCase().startsWith(breedFilter.toLowerCase());
+    return (
+      dog.name.toLowerCase().startsWith(nameFilter.toLowerCase()) &&
+      (breedFilter === '' || dog.breed.toLowerCase() === breedFilter.toLowerCase()) &&
+      (ageFilter === '' || dog.age.toString() === ageFilter) &&
+      (sexFilter === '' || dog.sex === sexFilter)
+    );
   });
   
-  
+  const uniqueBreeds = [...new Set(dogs.map(dog => dog.breed))];
 
   return (
     <div className="catalog-page">
       <h1>Dog Catalog</h1>
-
-      {/* Sökfält för ras */}
-      <div className="filter-form">
-        <label>
-          Search Breed:
-          <input
-            type="text"
-            name="breed"
-            value={breedFilter}
-            onChange={handleBreedChange}
-            placeholder="Type breed name"
+  
+      <div className="catalog-container">
+        <div className="filter-form">
+          <TextFilter
+            label="Search Name"
+            value={nameFilter}
+            onChange={setNameFilter}
+            placeholder="Type dog name"
           />
-        </label>
-      </div>
-
-      {/* Rendera filtrerade hundar */}
-      <div className="dog-list">
-        {filteredDogs.map((dog) => (
-          <DogCard
-            key={dog.chipNumber}
-            name={dog.name}
-            breed={dog.breed}
-            age={dog.age}
-            sex={dog.sex}
-            img={dog.img}
-            chipNumber={dog.chipNumber}
+  
+          <BreedFilter
+            breeds={uniqueBreeds}
+            selectedBreed={breedFilter}
+            setBreedFilter={setBreedFilter}
           />
-        ))}
+  
+          <OtherFilters
+            ageFilter={ageFilter}
+            setAgeFilter={setAgeFilter}
+            sexFilter={sexFilter}
+            setSexFilter={setSexFilter}
+          />
+        </div>
+  
+        <div className="dog-list">
+          {filteredDogs.map((dog) => (
+            <DogCard
+              key={dog.chipNumber}
+              name={dog.name}
+              breed={dog.breed}
+              age={dog.age}
+              sex={dog.sex}
+              img={dog.img}
+              chipNumber={dog.chipNumber}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
+  
 }
 
 export default Catalog;

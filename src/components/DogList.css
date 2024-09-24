@@ -2,8 +2,8 @@
 
 .dog-list {
     display: flex;
-    flex-wrap: wrap;  /* Gör att korten radbryts när det inte finns plats */
-    justify-content: center;  /* Centrerar korten */
-    gap: 10px;  /* Mellanrum mellan korten */
+    flex-wrap: wrap; 
+    justify-content: center;  
+    gap: 10px;  
     padding: 10px;
 }

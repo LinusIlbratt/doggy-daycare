@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';  // Korrekt importering av navigate
+import { useNavigate } from 'react-router-dom'; 
 import DogCard from './DogCard';
 
 function DogList() {
@@ -9,7 +9,7 @@ function DogList() {
   const navigate = useNavigate(); // use to change the URL
 
   useEffect(() => {
-    // Funktion för att hämta data från API
+    
     const fetchDogs = async () => {
       try {
         const response = await fetch('https://api.jsonbin.io/v3/b/66ea8f94ad19ca34f8a82e28');
@@ -25,7 +25,7 @@ function DogList() {
       }
     };
 
-    fetchDogs();  // Kör funktionen när komponenten mountas
+    fetchDogs();  
   }, []);  // Empty dependecy list so useEffect only runs one time
 
   if (loading) {
@@ -37,8 +37,8 @@ function DogList() {
   }
 
   const handleCardClick = (dog) => {
-    console.log('Clicked on:', dog);  // Kontrollera att klicket fungerar
-    navigate(`/dog/${dog.chipNumber}`); // Navigera till hundens detaljer med chipNumber
+    console.log('Clicked on:', dog);  
+    navigate(`/dog/${dog.chipNumber}`); 
   };
 
   return (
@@ -53,7 +53,7 @@ function DogList() {
           img={dog.img}
           chipNumber={dog.chipNumber}
           owner={dog.owner}
-          onClick={() => handleCardClick(dog)}  // Öppna detaljsidan vid klick
+          onClick={() => handleCardClick(dog)} 
         />
       ))}
     </div>
