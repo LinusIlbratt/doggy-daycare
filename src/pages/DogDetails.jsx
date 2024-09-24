@@ -1,17 +1,18 @@
 import React from "react"
 import { useParams } from 'react-router-dom'
+import './DogDetails.css'
 
 function DogDetails({ dogs }) {
-    const { chipNumber } = useParams()  // Hämta chipNumber från URL:en
-    console.log('ChipNumber from URL:', chipNumber);  // Logga chipNumber från URL
-    console.log('All Dogs:', dogs);  // Logga alla hundar från props
+    const { chipNumber } = useParams()  
+    console.log('ChipNumber from URL:', chipNumber);  
+    console.log('All Dogs:', dogs);  
 
-    // Jämför chipNumber från URL med chipNumber i datan, säkerställ att båda är strängar
+    
     const dog = dogs.find(d => String(d.chipNumber) === String(chipNumber));  
-    console.log('Found Dog:', dog);  // Logga om rätt hund hittas
+    console.log('Found Dog:', dog);  
 
     if (!dog) {
-        return <p>Dog not found</p>  // Visa meddelande om ingen hund hittas
+        return <p>Dog not found</p>  
     }
 
     return (
@@ -29,4 +30,4 @@ function DogDetails({ dogs }) {
     )
 }
 
-export default DogDetails;
+export default DogDetails; 
