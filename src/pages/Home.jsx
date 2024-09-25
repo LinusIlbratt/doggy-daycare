@@ -1,5 +1,9 @@
 function Home() {
-    return <h1>Welcome to Doggy Daycare</h1>
+    return (
+        <div className="home-page">
+            <h1>Welcome to Doggy Daycare</h1>
+        </div>
+    )
 }
 
 export default Home;

@@ -9,6 +9,10 @@ function Navbar() {
         setIsOpen(!isOpen);
     };
 
+    const closeMenu = () => {
+        setIsOpen(false); // Stänger menyn när en länk klickas
+    };
+
     return (
         <nav className='navbar'>
             <div className='logo'>
@@ -20,13 +24,13 @@ function Navbar() {
                 <span className='bar'></span>
             </button>
             <ul className={`nav-links ${isOpen ? 'open' : ''}`}>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/catalog">Catalog</Link></li>
-                {/* Ändra denna länk till rätt path */}
-                <li><Link to="/register">Register</Link></li>
+                <li><Link to="/" onClick={closeMenu}>Home</Link></li>
+                <li><Link to="/catalog" onClick={closeMenu}>Catalog</Link></li>
+                <li><Link to="/register" onClick={closeMenu}>Register</Link></li>
             </ul>
         </nav>
     );
 }
 
 export default Navbar;
+
