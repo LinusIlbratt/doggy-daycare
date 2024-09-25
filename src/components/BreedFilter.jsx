@@ -4,9 +4,7 @@ function BreedFilter({ breeds, selectedBreed, setBreedFilter }) {
   
   const sortedBreeds = breeds.sort((a, b) => a.localeCompare(b));
 
-  return (
-    <label>
-      Filter by Breed:
+  return (  
       <select
         value={selectedBreed}
         onChange={(e) => setBreedFilter(e.target.value)}
@@ -18,7 +16,7 @@ function BreedFilter({ breeds, selectedBreed, setBreedFilter }) {
           </option>
         ))}
       </select>
-    </label>
+    
   );
 }
 

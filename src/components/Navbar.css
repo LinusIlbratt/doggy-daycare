@@ -1,4 +1,22 @@
-/* Mobile first styling */
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* Root Variables */
+:root {
+  --navbar-bg: #fefefe;
+  --navbar-text: #333;
+  --navbar-link-hover: #f0a500;
+  --hamburger-bar-color: #333;
+  --font-family: 'Poppins', sans-serif;
+  --font-weight-bold: 600;
+  --font-size-large: 2rem;
+  --font-size-medium: 1.2rem;
+  --hamburger-size: 40px;
+  --mobile-menu-height: 100vh; /* Full skärmshöjd för mobilen */
+  --mobile-menu-padding: 20px;
+}
+
+/* Mobile-first styling for Navbar */
 .navbar {
   position: fixed;
   top: 0;
@@ -8,16 +26,18 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: transparent;
-  color: #333;
+  background-color: var(--navbar-bg);
+  color: var(--navbar-text);
   z-index: 1000;
   box-sizing: border-box;
 }
 
+/* Logo */
 .logo {
-  margin-left: 0; 
+  margin-left: 0;
 }
 
+/* Hamburger Menu */
 .hamburger {
   display: flex;
   flex-direction: column;
@@ -27,9 +47,10 @@
   background: none;
   border: none;
   padding: 0;
-  margin-left: auto; 
-  width: 40px; 
-  height: 40px; 
+  margin-left: auto;
+  width: 40px;
+  height: 40px;
+  z-index: 1001; /* Se till att hamburger-ikonen ligger över menyn */
 }
 
 .hamburger .bar {
@@ -39,65 +60,72 @@
   margin: 4px 0;
 }
 
+/* Remove background hover on hamburger */
 .hamburger:hover {
-  background-color: transparent; 
+  background-color: transparent;
 }
 
-
+/* Navigation links - hidden by default */
 .nav-links {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 30px;
   position: fixed;
-  top: 80px;
-  right: -110%; 
-  height: calc(100% - 60px);
-  width: calc(100vw - 10px); /* Minska bredden lite för att undvika scrollbaren */
-  background-color: #fff;
-  padding: 20px;
+  top: 60px; /* Flyttar menyn under navbaren */
+  height: var(--mobile-menu-height); /* Fullskärmshöjd */
+  right: -110%;
+  width: calc(100vw - 10px);
+  background-color: #fefefe;
+  padding: var(--mobile-menu-padding);
   transition: right 0.18s ease-in-out;
+  z-index: 999; /* Lägre än hamburgaren men över annat innehåll */
 }
 
 .nav-links.open {
   right: 0; /* Flyttar menyn in på skärmen */
 }
 
-
 .nav-links li a {
-  color: #333; 
+  color: #333;
   text-decoration: none;
   font-size: 2rem;
   font-family: 'Poppins', sans-serif;
-  font-weight: 600; /* Välj vikt från Google Fonts om du vill */
+  font-weight: 600;
 }
 
 .nav-links li a:hover {
-  color: #f0a500; 
+  color: #f0a500;
 }
 
+/* Visited link color */
 .nav-links li a:visited {
-  color: #333; 
+  color: var(--navbar-text);
 }
 
+/* Tablet and Desktop view */
 @media (min-width: 768px) {
+  /* Hide hamburger in desktop view */
   .hamburger {
     display: none;
   }
 
+  /* Display nav links horizontally */
   .nav-links {
     display: flex;
     flex-direction: row;
     position: static;
     padding: 0;
     gap: 20px;
-  }  
-
-  .logo h1 {
-    font-size: 2rem;
   }
 
+  /* Logo adjustments */
+  .logo h1 {
+    font-size: var(--font-size-large);
+  }
+
+  /* Resize nav links on desktop */
   .nav-links li a {
-    font-size: 1.2rem;
+    font-size: var(--font-size-medium);
   }
 }

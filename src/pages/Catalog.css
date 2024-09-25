@@ -1,55 +1,118 @@
-/* Catalog.css */
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* Root Variables */
+:root {
+  --main-text-color: #333;
+  --accent-color: #f0a500;
+  --font-family: 'Poppins', sans-serif;
+  --font-size-title: 2.5rem;
+  --font-size-normal: 1rem;
+  --filter-width: 100%;
+  --filter-max-width: 400px;
+  --dog-list-gap: 20px;
+  --field-height: 40px;
+  --container-width: 1200px;
+}
+
+/* Catalog Page Layout */
 .catalog-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  .catalog-page h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    color: #333;
-  }
-  
-  .catalog-container {
-    width: 100%;
-    max-width: 1200px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto; 
-  }
-  
-  .filter-form {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-  }
-  
-  .filter-form label {
-    color: white;
-    font-size: 1rem;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  font-family: var(--font-family);
+}
+
+/* Catalog Title */
+.catalog-page h1 {
+  font-size: var(--font-size-title);
+  margin-bottom: 20px;
+  color: var(--main-text-color);
+}
+
+/* Catalog Container */
+.catalog-container {
+  width: 100%;
+  max-width: var(--container-width);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+/* Filter Form Styles */
+.filter-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  width: var(--filter-width);
+  max-width: var(--filter-max-width);
+}
+
+/* Form Input and Select Fields */
+.filter-form input,
+.filter-form select {
+  width: 100%;
+  height: var(--field-height);
+  padding: 5px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+/* Filter Group Layout */
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Filter Labels */
+.filter-group label {
+  margin-bottom: 5px;
+  color: var(--main-text-color);
+  font-size: var(--font-size-normal);
+}
+
+/* Age & Sex Filter Wrapper */
+.age-sex-wrapper {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+}
+
+/* Age and Sex Filter Styling */
+.age-filter, .sex-filter {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.age-filter label, .sex-filter label {
+  margin-bottom: 5px;
+  color: var(--main-text-color);
+}
+
+/* Dog List Grid */
+.dog-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--dog-list-gap);
+  justify-content: center;
+  width: 100%;
+}
+
+/* Media Queries for Dog List */
+@media (min-width: 768px) {
   .dog-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 20px;
-    justify-content: center;
+    grid-template-columns: 1fr 1fr;
   }
-  
-  @media (min-width: 768px) {
-    .dog-list {
-      grid-template-columns: 1fr 1fr;
-    }
+}
+
+@media (min-width: 1024px) {
+  .dog-list {
+    grid-template-columns: 1fr 1fr 1fr;
   }
-  
-  @media (min-width: 1024px) {
-    .dog-list {
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-  }
-  
+}
