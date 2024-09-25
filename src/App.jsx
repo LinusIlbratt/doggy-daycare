@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Catalog from './pages/Catalog';
 import DogDetails from './pages/DogDetails';
+import RegisterDog from './pages/RegisterDog';
 import './App.css'
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route path='/catalog' element={<Catalog dogs={dogs} />} />
           <Route path='/dog/:chipNumber' element={<DogDetails dogs={dogs} />} />
+          <Route path='/register' element={<RegisterDog />} />
         </Routes>
       </div>
     </Router>
