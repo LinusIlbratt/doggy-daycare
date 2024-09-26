@@ -1,7 +1,7 @@
 /* Sidebar Styling */
 .sidebar {
-    width: var(--sidebar-width); /* Variabel för sidebarens bredd */
-    height: 100vh; /* Full höjd för sidebaren */
+    width: var(--sidebar-width);
+    height: 100vh;
     background-color: var(--sidebar-bg);
     color: var(--sidebar-text-color);
     position: fixed;
@@ -12,14 +12,12 @@
     align-items: center;
     padding-top: 20px;
     z-index: 1000;
-  }
+    box-shadow: 5px 0 10px rgba(0, 0, 0, 0.5);
+}
 
-/* Sidebar logo */
-.sidebar-logo img {
-    width: 80px; /* Justera loggans storlek */
-    height: auto;
-    margin-bottom: 20px;
-  }
+.sidebar p {
+    color: #efefef;
+}
 
 /* Sidebar links */
 .sidebar-links {
@@ -27,53 +25,66 @@
     padding: 0;
     width: 100%;
     text-align: center;
-  }
-  
-  .sidebar-links li {
+}
+
+.sidebar-links li {
     margin: 20px 0;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centrera ikoner och text */
-  }
-  
-  .sidebar-links li a {
+    align-items: center;
+}
+
+.sidebar-links li a {
     text-decoration: none;
     color: var(--sidebar-text-color);
-    font-size: 0.9rem; /* Justera textstorleken för länkarna */
+    font-size: 0.9rem;
     display: block;
     padding: 10px 0;
-  }
+}
 
 .sidebar-links li a p {
     margin-top: 5px;
 }
 
 .sidebar-links li a:hover {
-   transform: scale(1.1);
+    transform: scale(1.1);
 }
 
-/* Gör ikonerna större */
 .sidebar-links li svg {
-    font-size: 36px; /* Justera ikonernas storlek */
-  }
+    font-size: 36px;
+}
+
+.home-icon {
+    color: #298ffd;
+}
+
+.dog-icon {
+    color: #fe8e75;
+    /* Orange */
+}
+
+.register-icon {
+    color: #54e476;
+    /* Grön */
+}
+
+.report-icon {
+    color: #dd515f;
+    /* Röd */
+}
 
 
-/* För större skärmar */
 @media (min-width: 768px) {
     .sidebar {
-        width: 150px; /* Återställ sidebar-bredd för större skärmar */
-    }
-
-    .sidebar-logo img {
-        width: 80px;
+        width: 150px;
     }
 
     .sidebar-links li a {
-        font-size: 1rem; /* Större text för ikoner */
+        font-size: 1rem;
     }
 
     .sidebar-links li svg {
-        font-size: 36px;
+        font-size: 48px;
     }
 
     .main-content {

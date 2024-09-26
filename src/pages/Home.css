@@ -1,80 +1,55 @@
-:root {
-    --primary-color: #007bff;
-    --primary-hover-color: #0056b3;
-    --background-color: #f8f9fa;
-    --text-color: #333;
-    --subtext-color: #666;
-    --heading-font-size: 2rem; /* Adjust for mobiles */
-    --subheading-font-size: 1.4rem; /* Adjust for mobiles */
-    --button-padding: 10px 15px; /* Adjust for mobiles */
-    --border-radius: 8px;
-    --notification-bg: #fff;
-    --border-left-color: var(--primary-color);
-}
-
-/* Mobile-first layout */
-.home-page {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; /* Align everything to the left */
-    padding: 10px;
-    color: var(--text-color);
-    width: 100%; /* Ensure full width on mobile */
-    max-width: 100%; /* No width restriction on mobile */
-    margin-left: var(--sidebar-width); /* Ensure content is aligned after sidebar */
-}
-
-.home-page h1 {
+/* Mobile-first layout for Home */
+.dashboard h1 {
     font-size: var(--heading-font-size);
-    margin-bottom: 15px;
-    color: var(--text-color);
+    margin-bottom: var(--spacing-medium);
+    color: var(--color-secondary);
 }
 
-/* Notifications and Tasks - full width */
-.notifications, .tasks {
-    width: 100%; /* Full width for mobile */
-    max-width: 400px; /* Limit max width */
-    margin: 20px 0;
+/* Paragraph Styling */
+.dashboard p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-small);
+    color: var(--color-text);
+    max-width: 100%;
 }
 
-.notifications h2, .tasks h2 {
+/* Notifications and Tasks Section */
+.notifications h2,
+.tasks h2 {
     font-size: var(--subheading-font-size);
-    margin-bottom: 10px;
+    margin-bottom: var(--spacing-small);
 }
 
-.notifications ul, .tasks ul {
+.notifications ul,
+.tasks ul {
     list-style: none;
     padding-left: 0;
 }
 
-.notifications li, .tasks li {
+.notifications li,
+.tasks li {
     background-color: var(--notification-bg);
-    padding: 10px;
-    margin-bottom: 10px;
-    border-left: 5px solid var(--border-left-color);
+    padding: var(--spacing-small);
+    margin-bottom: var(--spacing-small);
+    border-left: 5px solid var(--primary-color);
 }
 
 /* Larger screen adjustments */
-@media (min-width: 768px) {
-    .home-page {
-        padding: 20px;
-        max-width: 800px; /* Restrict max width on larger screens */
-        margin-left: var(--sidebar-width); /* Account for the sidebar width */
-    }
-
-    .home-page h1 {
+@media (min-width: 768px) {    
+    .dashboard h1 {
         font-size: 2.5rem;
-        margin-bottom: 30px;
+        margin-bottom: var(--spacing-large);
     }
 
-    .quick-actions {
-        flex-direction: row; /* Place buttons side by side */
-        justify-content: flex-start; /* Align buttons to the left */
-        gap: 15px;
-        max-width: none;
+    .dashboard p {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        max-width: 800px;
     }
 
-    .notifications, .tasks {
-        max-width: 600px; /* Increase max width on larger screens */
+    .notifications,
+    .tasks {
+        max-width: 600px;
     }
 }

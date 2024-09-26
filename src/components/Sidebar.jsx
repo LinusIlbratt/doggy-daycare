@@ -6,33 +6,30 @@ import './Sidebar.css';
 
 function Sidebar() {
   return (
-    <div className="sidebar">
-      <div className="sidebar-logo">
-        <img src={pawLogo} alt="Paw logo" />
-      </div>
+    <div className="sidebar">      
       <ul className="sidebar-links">
         <li>
           <Link to="/">
-            <FaHome size={24} />
+            <FaHome className='home-icon' />
             <p>Dashboard</p>
           </Link>
         </li>
         <li>
           <Link to="/catalog">
-            <FaDog size={24} />
+            <FaDog className='dog-icon' />
             <p>View Dogs</p>
           </Link>
         </li>
         <li>
           <Link to="/register">
-            <FaRegFileAlt size={24} />
+            <FaRegFileAlt className='register-icon' />
             <p>Register Dog</p>
           </Link>
         </li>
         <li>
-          <Link to="/report-problem"> {/* Assuming you'll create a route for Report Problem */}
-            <FaExclamationTriangle size={24} />
-            <p>Report Problem</p>
+          <Link to="/report-problem"> 
+            <FaExclamationTriangle className='report-icon' />
+            <p>Report Bug</p>
           </Link>
         </li>
       </ul>
