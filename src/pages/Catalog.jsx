@@ -1,15 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import DogCard from '../components/DogCard';
 import TextFilter from '../components/TextFilter';
 import BreedFilter from '../components/BreedFilter';
-import OtherFilters from '../components/OtherFilters';
 import './Catalog.css';
 
 function Catalog({ dogs }) {
-  const [nameFilter, setNameFilter] = useState('');
-  const [breedFilter, setBreedFilter] = useState('');
-  const [ageFilter, setAgeFilter] = useState('');
-  const [sexFilter, setSexFilter] = useState('');
+  const navigate = useNavigate();
+  const location = useLocation();
+  
+  // Extract the search params from URL
+  const searchParams = new URLSearchParams(location.search);
+
+  const [nameFilter, setNameFilter] = useState(searchParams.get('name') || '');
+  const [breedFilter, setBreedFilter] = useState(searchParams.get('breed') || '');
+  const [ageFilter, setAgeFilter] = useState(searchParams.get('age') || '');
+  const [sexFilter, setSexFilter] = useState(searchParams.get('sex') || '');
+
+  const updateURLParams = () => {
+    const params = new URLSearchParams();
+    if (nameFilter) params.set('name', nameFilter);
+    if (breedFilter) params.set('breed', breedFilter);
+    if (ageFilter) params.set('age', ageFilter);
+    if (sexFilter) params.set('sex', sexFilter);
+    navigate(`?${params.toString()}`);
+  };
+
+  useEffect(() => {
+    updateURLParams();
+  }, [nameFilter, breedFilter, ageFilter, sexFilter]);
 
   const filteredDogs = dogs.filter((dog) => {
     return (
@@ -38,7 +57,7 @@ function Catalog({ dogs }) {
           </div>
 
           <div className="filter-group">
-            <label>Filter by Breed:</label> {/* Lägg till denna label ovanför dropdown */}
+            <label>Filter by Breed:</label>
             <BreedFilter
               breeds={uniqueBreeds}
               selectedBreed={breedFilter}
@@ -71,7 +90,6 @@ function Catalog({ dogs }) {
           </div>
         </div>
 
-
         <div className="dog-list">
           {filteredDogs.map((dog) => (
             <DogCard
@@ -86,10 +104,8 @@ function Catalog({ dogs }) {
           ))}
         </div>
       </div>
-
     </div>
   );
-
 }
 
 export default Catalog;
