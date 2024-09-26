@@ -1,37 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import pawLogo from '../assets/pawlogo.png';
-import { FaHome, FaRegFileAlt, FaDog, FaExclamationTriangle } from 'react-icons/fa'; // Add FaHome for Dashboard
-import './Sidebar.css'; // Import the CSS file for sidebar styles
+import { FaHome, FaRegFileAlt, FaDog, FaExclamationTriangle } from 'react-icons/fa'; 
+import './Sidebar.css'; 
 
 function Sidebar() {
   return (
-    <div className="sidebar">
-      <div className="sidebar-logo">
-        <img src={pawLogo} alt="Paw logo" />
-      </div>
+    <div className="sidebar">      
       <ul className="sidebar-links">
         <li>
           <Link to="/">
-            <FaHome size={24} />
+            <FaHome className='home-icon' />
             <p>Dashboard</p>
           </Link>
         </li>
         <li>
           <Link to="/catalog">
-            <FaDog size={24} />
+            <FaDog className='dog-icon' />
             <p>View Dogs</p>
           </Link>
         </li>
         <li>
           <Link to="/register">
-            <FaRegFileAlt size={24} />
+            <FaRegFileAlt className='register-icon' />
             <p>Register Dog</p>
           </Link>
         </li>
-        <li>            
-                <FaExclamationTriangle size={24} />
-                <p>Report problem</p>            
+        <li>
+          <Link to="/report-problem"> 
+            <FaExclamationTriangle className='report-icon' />
+            <p>Report Bug</p>
+          </Link>
         </li>
       </ul>
     </div>

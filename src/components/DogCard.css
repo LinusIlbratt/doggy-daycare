@@ -1,68 +1,49 @@
-:root {
-    --card-bg-color: #cfcfcf;
-    --card-text-color: #4a4a4a;
-    --card-heading-color: #333;
-    --card-accent-color: #007bff;
-    --card-accent-hover-color: #0056b3;
-    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    --card-border-radius: 8px;
-    --card-width: 90%;
-    --card-max-width: 300px;
-    --card-padding: 20px;
-    --heading-font-size: 1.5rem;
-    --text-font-size: 1rem;
-    --image-border-radius: 8px;
-    --hover-lift: scale(1.05);
-  }
-  
-  .dog-card {
-      background-color: var(--card-bg-color);
-      width: var(--card-width);
-      max-width: var(--card-max-width);
-      margin: 10px auto;
-      padding: var(--card-padding);
-      border-radius: var(--card-border-radius);
-      box-shadow: var(--card-shadow);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      transition: transform 0.3s ease-in-out;
-  }
-  
-  .dog-card:hover {
-      transform: var(--hover-lift);
-  }
-  
-  .dog-card img {
-      width: 100%;
-      height: auto;
-      border-radius: var(--image-border-radius);
-      border: 1px solid var(--card-border-color);
-  }
-  
-  .dog-card h2 {
-      margin: 10px 0;
-      font-size: var(--heading-font-size);
-      color: var(--card-heading-color);
-  }
-  
-  .dog-card p {
-      margin: 5px 0;
-      font-size: var(--text-font-size);
-      color: var(--card-text-color);
-  }
-  
-  .dog-card button {
-      background-color: var(--card-accent-color);
-      color: white;
-      padding: 10px 15px;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.3s ease-in-out;
-  }
-  
-  .dog-card button:hover {
-      background-color: var(--card-accent-hover-color);
-  }
-  
+.dog-card {
+    background-color: var(--card-bg-color);
+    width: var(--card-width);
+    max-width: var(--card-max-width);
+    margin: 10px auto;
+    padding: var(--card-padding);
+    border-radius: var(--card-border-radius);
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.dog-card:hover {
+    transform: var(--hover-lift);
+}
+
+.dog-card img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--image-border-radius);
+}
+
+.dog-card h2 {
+    margin: 10px 0;
+    font-size: var(--heading-font-size);
+    color: var(--card-heading-color);
+}
+
+.dog-card p {
+    margin: 5px 0;
+    font-size: var(--text-font-size);
+    color: var(--card-text-color);
+}
+
+.dog-card button {
+    background-color: var(--card-accent-color);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.dog-card button:hover {
+    background-color: var(--card-accent-hover-color);
+}

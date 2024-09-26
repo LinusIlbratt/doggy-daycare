@@ -1,53 +1,110 @@
-/* General/global styles */
+/* Global Styles and Theme Variables */
 :root {
+  /* Container Layout */
+  --container-width: 1200px;
+
+  /* Fonts */
   --font-family: 'Poppins', Arial, Helvetica, sans-serif;
   --font-size-base: 1rem;
   --font-size-large: 2rem;
-  --color-primary: #007bff;
+  --heading-font-size: 1.5rem; 
+  --subheading-font-size: 1.4rem;
+  --text-font-size: 1rem;
+
+  /* Colors */
+  --primary-color: #007bff;
+  --primary-hover-color: #0056b3;
   --color-secondary: #333;
+  --accent-color: #f0a500;
   --color-background: #fefefe;
+  --color-text: #333;
   --color-button-bg: #007bff;
   --color-button-hover-bg: #0056b3;
-  --color-text: #333;
   --color-button-text: #fff;
-  --sidebar-bg: #2c3e50;
+
+  /* Sidebar */
+  --sidebar-bg: #102235;
   --sidebar-text-color: #ecf0f1;
   --sidebar-link-hover: #3498db;
   --sidebar-width: 100px;
+
+  /* Form Fields */
+  --field-height: 40px;
+
+  /* Form and Notification */
+  --notification-bg: #fff;
+  --border-radius: 8px;
+  --border-left-color: var(--primary-color);
+
+  /* Button and Layout */
+  --button-padding: 10px 15px;
+
+  /* Spacing */
+  --spacing-small: 8px;
+  --spacing-medium: 16px;
+  --spacing-large: 32px;
+
+  /* Box Shadows */
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  /* Dimensions */
+  --card-width: 90%;
+  --card-max-width: 300px; 
+  --card-padding: 20px; 
+  --card-border-radius: 8px; 
+  --hover-lift: scale(1.05); 
+  --image-border-radius: 8px; 
+}
+
+* {
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
 }
 
 body {
   margin: 0;
   padding: 0;
+  font-family: var(--font-family);
   background-color: var(--color-background);
+  color: var(--color-text);
 }
 
-#root {
-  width: 100%;
-  margin: 0;
+h1,
+h2,
+p,
+ul,
+li {
+  font-family: var(--font-family); /* Ensure all text elements use Poppins */
 }
 
+button {
+  background-color: var(--color-button-bg);
+  color: var(--color-button-text);
+  padding: var(--spacing-small) var(--spacing-medium);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: var(--color-button-hover-bg);
+}
+
+/* General Layout */
 .App {
   display: flex;
 }
 
-/* Ensure the content respects the sidebar width */
 .main-content {
-  margin-left: var(--sidebar-width); /* Offset the content to account for sidebar */
-  padding: 20px;
-  width: calc(100% - var(--sidebar-width)); /* Ensure the width is correct */
+  margin-left: var(--sidebar-width);
+  padding: var(--spacing-medium);
+  width: calc(100% - var(--sidebar-width));
 }
 
-h1 {
-  font-size: var(--font-size-large);
-  line-height: 1.2;
-  color: var(--color-secondary);
-}
-
+/* Media Queries for larger screens */
 @media (min-width: 768px) {
   .main-content {
-      margin-left: 150px; /* Match this value to the sidebar width on larger screens */
-      padding: 20px;
-      width: calc(100% - 150px); /* Adjust the width accordingly */
+    margin-left: 150px;
+    width: calc(100% - 150px);
   }
 }
