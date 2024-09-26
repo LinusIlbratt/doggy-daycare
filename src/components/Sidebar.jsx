@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import pawLogo from '../assets/pawlogo.png';
-import { FaHome, FaRegFileAlt, FaDog, FaExclamationTriangle } from 'react-icons/fa'; // Add FaHome for Dashboard
-import './Sidebar.css'; // Import the CSS file for sidebar styles
+import { FaHome, FaRegFileAlt, FaDog, FaExclamationTriangle } from 'react-icons/fa'; 
+import './Sidebar.css'; 
 
 function Sidebar() {
   return (
@@ -29,9 +29,11 @@ function Sidebar() {
             <p>Register Dog</p>
           </Link>
         </li>
-        <li>            
-                <FaExclamationTriangle size={24} />
-                <p>Report problem</p>            
+        <li>
+          <Link to="/report-problem"> {/* Assuming you'll create a route for Report Problem */}
+            <FaExclamationTriangle size={24} />
+            <p>Report Problem</p>
+          </Link>
         </li>
       </ul>
     </div>

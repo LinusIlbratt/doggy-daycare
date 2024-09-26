@@ -18,14 +18,14 @@ function App() {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        setDogs(data.record);  
+        setDogs(data.record);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
-    fetchDogs();  
-  }, []);  
+    fetchDogs();
+  }, []);
 
   return (
     <Router>
@@ -34,9 +34,10 @@ function App() {
         <div className='main-content'>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/catalog" element={<Catalog />} />
+            <Route path="/catalog" element={<Catalog dogs={dogs} />} />
             <Route path="/register" element={<RegisterDog />} />
-            <Route path="/dog/:chipNumber" element={<DogDetails />} />
+            {/* Pass the dogs array to the DogDetails route */}
+            <Route path="/dog/:chipNumber" element={<DogDetails dogs={dogs} />} />
           </Routes>
         </div>
       </div>
