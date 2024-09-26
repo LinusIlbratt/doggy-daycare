@@ -29,11 +29,9 @@ function Sidebar() {
             <p>Register Dog</p>
           </Link>
         </li>
-        <li>
-            <Link to="">
+        <li>            
                 <FaExclamationTriangle size={24} />
-                <p>Report problem</p>
-            </Link>
+                <p>Report problem</p>            
         </li>
       </ul>
     </div>

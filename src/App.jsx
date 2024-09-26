@@ -30,14 +30,13 @@ function App() {
   return (
     <Router>
       <div className='App'>
-        <Sidebar />  {/* Include Sidebar */}
+        <Sidebar />
         <div className='main-content'>
-          {/* Wrap your routes in the main-content div */}
           <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/catalog' element={<Catalog dogs={dogs} />} />
-            <Route path='/dog/:chipNumber' element={<DogDetails dogs={dogs} />} />
-            <Route path='/register' element={<RegisterDog />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/catalog" element={<Catalog />} />
+            <Route path="/register" element={<RegisterDog />} />
+            <Route path="/dog/:chipNumber" element={<DogDetails />} />
           </Routes>
         </div>
       </div>

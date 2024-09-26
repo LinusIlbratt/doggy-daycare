@@ -1,7 +1,7 @@
 /* Sidebar Styling */
 .sidebar {
-    width: var(--sidebar-width);
-    height: 100vh; /* Ensure the sidebar spans the full height */
+    width: var(--sidebar-width); /* Variabel för sidebarens bredd */
+    height: 100vh; /* Full höjd för sidebaren */
     background-color: var(--sidebar-bg);
     color: var(--sidebar-text-color);
     position: fixed;
@@ -11,14 +11,15 @@
     flex-direction: column;
     align-items: center;
     padding-top: 20px;
+    z-index: 1000;
   }
 
-/* Logo */
+/* Sidebar logo */
 .sidebar-logo img {
-    width: 50px; /* Anpassa loggans storlek för små skärmar */
+    width: 80px; /* Justera loggans storlek */
     height: auto;
-    margin-bottom: 10px;
-}
+    margin-bottom: 20px;
+  }
 
 /* Sidebar links */
 .sidebar-links {
@@ -26,21 +27,22 @@
     padding: 0;
     width: 100%;
     text-align: center;
-}
-
-.sidebar-links li {
-    margin: 15px 0;
+  }
+  
+  .sidebar-links li {
+    margin: 20px 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
-
-.sidebar-links li a {
+    align-items: center; /* Centrera ikoner och text */
+  }
+  
+  .sidebar-links li a {
     text-decoration: none;
     color: var(--sidebar-text-color);
-    font-size: 0.7rem; /* Mindre teckenstorlek för mobiler */
+    font-size: 0.9rem; /* Justera textstorleken för länkarna */
     display: block;
-}
+    padding: 10px 0;
+  }
 
 .sidebar-links li a p {
     margin-top: 5px;
@@ -50,23 +52,11 @@
    transform: scale(1.1);
 }
 
-/* Ikoner för mobiler */
+/* Gör ikonerna större */
 .sidebar-links li svg {
-    font-size: 20px; /* Mindre storlek på ikoner för mobiler */
-}
-
-/* Main content shifts to the right of the sidebar */
-.main-content {
-    margin-left: var(--sidebar-width); /* Offset main content by sidebar width */
-    padding: 20px;
-    width: calc(100% - var(--sidebar-width)); /* Adjust content width */
+    font-size: 36px; /* Justera ikonernas storlek */
   }
 
-/* Anpassa CTA-knappar */
-button {
-    width: 100%; /* Ta upp hela bredden på små skärmar */
-    margin-bottom: 10px;
-}
 
 /* För större skärmar */
 @media (min-width: 768px) {
