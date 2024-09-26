@@ -1,0 +1,80 @@
+:root {
+    --primary-color: #007bff;
+    --primary-hover-color: #0056b3;
+    --background-color: #f8f9fa;
+    --text-color: #333;
+    --subtext-color: #666;
+    --heading-font-size: 2rem; /* Adjust for mobiles */
+    --subheading-font-size: 1.4rem; /* Adjust for mobiles */
+    --button-padding: 10px 15px; /* Adjust for mobiles */
+    --border-radius: 8px;
+    --notification-bg: #fff;
+    --border-left-color: var(--primary-color);
+}
+
+/* Mobile-first layout */
+.home-page {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align everything to the left */
+    padding: 10px;
+    color: var(--text-color);
+    width: 100%; /* Ensure full width on mobile */
+    max-width: 100%; /* No width restriction on mobile */
+    margin-left: var(--sidebar-width); /* Ensure content is aligned after sidebar */
+}
+
+.home-page h1 {
+    font-size: var(--heading-font-size);
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+/* Notifications and Tasks - full width */
+.notifications, .tasks {
+    width: 100%; /* Full width for mobile */
+    max-width: 400px; /* Limit max width */
+    margin: 20px 0;
+}
+
+.notifications h2, .tasks h2 {
+    font-size: var(--subheading-font-size);
+    margin-bottom: 10px;
+}
+
+.notifications ul, .tasks ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.notifications li, .tasks li {
+    background-color: var(--notification-bg);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-left: 5px solid var(--border-left-color);
+}
+
+/* Larger screen adjustments */
+@media (min-width: 768px) {
+    .home-page {
+        padding: 20px;
+        max-width: 800px; /* Restrict max width on larger screens */
+        margin-left: var(--sidebar-width); /* Account for the sidebar width */
+    }
+
+    .home-page h1 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+    }
+
+    .quick-actions {
+        flex-direction: row; /* Place buttons side by side */
+        justify-content: flex-start; /* Align buttons to the left */
+        gap: 15px;
+        max-width: none;
+    }
+
+    .notifications, .tasks {
+        max-width: 600px; /* Increase max width on larger screens */
+    }
+}

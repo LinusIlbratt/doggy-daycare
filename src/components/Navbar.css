@@ -1,86 +1,148 @@
-/* Mobile first styling */
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+/* Root Variables */
+:root {
+  --navbar-bg: red;
+  --navbar-text: #333;
+  --navbar-link-hover: #f0a500;
+  --hamburger-bar-color: #333;
+  --font-family: 'Poppins', sans-serif;
+  --font-weight-bold: 600;
+  --font-size-large: 2rem;
+  --font-size-medium: 1.2rem;
+  --hamburger-size: 40px;
+  --navbar-height: 100px;
+  --mobile-menu-height: 100vh; /* Full skärmshöjd för mobilen */
+  --mobile-menu-padding: 20px;
+}
+
+/* Mobile-first styling for Navbar */
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
-    z-index: 1000;
-    box-sizing: border-box; /* Ser till att padding räknas in i bredden */
-  }
-  
-  
-  
-  .logo h1 {
-    font-size: 1.5rem;
-  }
-  
-  .nav-links {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    background-color: #333;
-    padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--navbar-height); /* Använd navbar-höjd */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: var(--navbar-bg);
+  color: var(--navbar-text);
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+/* Logo */
+.logo {
+  margin-left: 0;
+}
+
+.logo img {
+  width: 80px; /* Anpassa storleken på loggan här */
+  height: auto;
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: auto;
+  width: var(--hamburger-size);
+  height: var(--hamburger-size);
+  z-index: 1100;
+}
+
+/* Hamburger bars */
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--hamburger-bar-color);
+  margin: 4px 0;
+}
+
+/* Remove background hover on hamburger */
+.hamburger:hover {
+  background-color: transparent;
+}
+
+/* Navigation links - hidden by default */
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  position: fixed;
+  top: 60px;
+  height: 100%;
+  right: -110%; /* Hidden off-screen by default */
+  width: calc(100vw - 10px);
+  background-color: var(--navbar-bg);
+  padding: 20px;
+  transition: right 0.18s ease-in-out;
+}
+
+/* Show navigation links when open */
+.nav-links.open {
+  right: 0;
+}
+
+/* Navigation link styles */
+.nav-links li a {
+  color: var(--navbar-text);
+  text-decoration: none;
+  font-size: var(--font-size-large);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Hover effect on links */
+.nav-links li a:hover {
+  color: var(--navbar-link-hover);
+}
+
+/* Visited link color */
+.nav-links li a:visited {
+  color: var(--navbar-text);
+}
+
+/* Tablet and Desktop view */
+@media (min-width: 768px) {
+  /* Hide hamburger in desktop view */
+  .hamburger {
     display: none;
   }
-  
-  .nav-links.open {
-    display: flex;
-  }
-  
+
+ /* Display nav links horizontally and center them */
+ .nav-links {
+  display: flex;
+  flex-direction: row;
+  position: static;
+  padding: 0;
+  gap: 50px;
+  justify-content: center; /* Centrera länkarna i navbaren */
+  align-items: center;
+  margin-left: 120px; /* Tillräckligt med utrymme för loggan så att länkarna inte försvinner */
+  width: calc(100% - 160px); /* Säkerställ att länkarna får plats */
+}
+
+/* Logo adjustments */
+.logo {
+  position: absolute; /* Placera loggan till vänster */
+  left: 20px;
+  top: 50%; /* Vertikal centrering */
+  transform: translateY(-50%);
+}
+
+  /* Resize nav links on desktop */
   .nav-links li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
+    font-size: var(--font-size-medium);
   }
-  
-  .hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* centers the bars vertical */
-    align-items: center;     /* centers the bars horizontal */
-    cursor: pointer;
-    background: none;
-    border: none;
-    padding: 0;
-    margin-right: 5px;     
-  }
-  
-  .hamburger .bar {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 4px 2px;
-  }
-  
-  @media (min-width: 768px) {
-    .hamburger {
-      display: none;
-    }
-  
-    .nav-links {
-      display: flex;
-      flex-direction: row;
-      position: static;
-      padding: 0;
-      gap: 20px;
-    }  
-  
-    .logo h1 {
-      font-size: 2rem;
-    }
-  
-    .nav-links li a {
-      font-size: 1.2rem;
-    }
-  }
+}
