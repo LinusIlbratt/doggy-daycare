@@ -31,14 +31,23 @@ body {
   display: flex;
 }
 
+/* Ensure the content respects the sidebar width */
 .main-content {
-  margin-left: var(--sidebar-width);
+  margin-left: var(--sidebar-width); /* Offset the content to account for sidebar */
   padding: 20px;
-  width: calc(100% - var(--sidebar-width));
+  width: calc(100% - var(--sidebar-width)); /* Ensure the width is correct */
 }
 
 h1 {
   font-size: var(--font-size-large);
   line-height: 1.2;
   color: var(--color-secondary);
+}
+
+@media (min-width: 768px) {
+  .main-content {
+      margin-left: 150px; /* Match this value to the sidebar width on larger screens */
+      padding: 20px;
+      width: calc(100% - 150px); /* Adjust the width accordingly */
+  }
 }
