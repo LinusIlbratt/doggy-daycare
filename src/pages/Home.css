@@ -1,12 +1,102 @@
+:root {
+    --primary-color: #007bff;
+    --primary-hover-color: #0056b3;
+    --background-color: #f8f9fa;
+    --text-color: #333;
+    --subtext-color: #666;
+    --heading-font-size: 2.5rem;
+    --subheading-font-size: 1.8rem;
+    --button-padding: 10px 20px;
+    --border-radius: 8px;
+    --notification-bg: #fff;
+    --border-left-color: var(--primary-color);
+}
+
 .home-page {
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    color: var(--text-color);
 }
 
 .home-page h1 {
-    font-size: 2.5rem;
+    font-size: var(--heading-font-size);
     margin-bottom: 20px;
-    color: #333;
+    color: var(--text-color);
+}
+
+.subtext {
+    font-size: 1.2rem;
+    color: var(--subtext-color);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.quick-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.quick-actions button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: var(--button-padding);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.quick-actions button:hover {
+    background-color: var(--primary-hover-color);
+}
+
+/* Notifications Section */
+.notifications {
+    margin: 40px 0;
+    background-color: var(--background-color);
+    padding: 20px;
+    border-radius: var(--border-radius);
+}
+
+.notifications h2 {
+    font-size: var(--subheading-font-size);
+    margin-bottom: 10px;
+}
+
+.notifications ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.notifications li {
+    background-color: var(--notification-bg);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-left: 5px solid var(--border-left-color);
+}
+
+/* Task Summary Section */
+.tasks {
+    margin: 40px 0;
+}
+
+.tasks h2 {
+    font-size: var(--subheading-font-size);
+    margin-bottom: 10px;
+}
+
+.tasks ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.tasks li {
+    background-color: var(--notification-bg);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-left: 5px solid var(--border-left-color);
 }

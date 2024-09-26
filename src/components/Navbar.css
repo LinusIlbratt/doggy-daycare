@@ -3,7 +3,7 @@
 
 /* Root Variables */
 :root {
-  --navbar-bg: #fefefe;
+  --navbar-bg: red;
   --navbar-text: #333;
   --navbar-link-hover: #f0a500;
   --hamburger-bar-color: #333;
@@ -12,6 +12,7 @@
   --font-size-large: 2rem;
   --font-size-medium: 1.2rem;
   --hamburger-size: 40px;
+  --navbar-height: 100px;
   --mobile-menu-height: 100vh; /* Full skärmshöjd för mobilen */
   --mobile-menu-padding: 20px;
 }
@@ -22,6 +23,7 @@
   top: 0;
   left: 0;
   width: 100%;
+  height: var(--navbar-height); /* Använd navbar-höjd */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -37,6 +39,11 @@
   margin-left: 0;
 }
 
+.logo img {
+  width: 80px; /* Anpassa storleken på loggan här */
+  height: auto;
+}
+
 /* Hamburger Menu */
 .hamburger {
   display: flex;
@@ -48,15 +55,16 @@
   border: none;
   padding: 0;
   margin-left: auto;
-  width: 40px;
-  height: 40px;
-  z-index: 1001; /* Se till att hamburger-ikonen ligger över menyn */
+  width: var(--hamburger-size);
+  height: var(--hamburger-size);
+  z-index: 1100;
 }
 
+/* Hamburger bars */
 .hamburger .bar {
   width: 25px;
   height: 3px;
-  background-color: #333;
+  background-color: var(--hamburger-bar-color);
   margin: 4px 0;
 }
 
@@ -72,30 +80,32 @@
   flex-direction: column;
   gap: 30px;
   position: fixed;
-  top: 60px; /* Flyttar menyn under navbaren */
-  height: var(--mobile-menu-height); /* Fullskärmshöjd */
-  right: -110%;
+  top: 60px;
+  height: 100%;
+  right: -110%; /* Hidden off-screen by default */
   width: calc(100vw - 10px);
-  background-color: #fefefe;
-  padding: var(--mobile-menu-padding);
+  background-color: var(--navbar-bg);
+  padding: 20px;
   transition: right 0.18s ease-in-out;
-  z-index: 999; /* Lägre än hamburgaren men över annat innehåll */
 }
 
+/* Show navigation links when open */
 .nav-links.open {
-  right: 0; /* Flyttar menyn in på skärmen */
+  right: 0;
 }
 
+/* Navigation link styles */
 .nav-links li a {
-  color: #333;
+  color: var(--navbar-text);
   text-decoration: none;
-  font-size: 2rem;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
+  font-size: var(--font-size-large);
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-bold);
 }
 
+/* Hover effect on links */
 .nav-links li a:hover {
-  color: #f0a500;
+  color: var(--navbar-link-hover);
 }
 
 /* Visited link color */
@@ -110,19 +120,26 @@
     display: none;
   }
 
-  /* Display nav links horizontally */
-  .nav-links {
-    display: flex;
-    flex-direction: row;
-    position: static;
-    padding: 0;
-    gap: 20px;
-  }
+ /* Display nav links horizontally and center them */
+ .nav-links {
+  display: flex;
+  flex-direction: row;
+  position: static;
+  padding: 0;
+  gap: 50px;
+  justify-content: center; /* Centrera länkarna i navbaren */
+  align-items: center;
+  margin-left: 120px; /* Tillräckligt med utrymme för loggan så att länkarna inte försvinner */
+  width: calc(100% - 160px); /* Säkerställ att länkarna får plats */
+}
 
-  /* Logo adjustments */
-  .logo h1 {
-    font-size: var(--font-size-large);
-  }
+/* Logo adjustments */
+.logo {
+  position: absolute; /* Placera loggan till vänster */
+  left: 20px;
+  top: 50%; /* Vertikal centrering */
+  transform: translateY(-50%);
+}
 
   /* Resize nav links on desktop */
   .nav-links li a {

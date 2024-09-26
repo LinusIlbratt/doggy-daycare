@@ -1,51 +1,68 @@
-/* Root Variables */
 :root {
-    --card-bg-color: #f1f1f1;
-    --card-text-color: #555;
+    --card-bg-color: #cfcfcf;
+    --card-text-color: #4a4a4a;
     --card-heading-color: #333;
+    --card-accent-color: #007bff;
+    --card-accent-hover-color: #0056b3;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --card-border-radius: 8px;
     --card-width: 90%;
     --card-max-width: 300px;
-    --card-padding: 15px;
-    --card-border-radius: 8px;
-    --card-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    --card-margin: 10px auto;
+    --card-padding: 20px;
     --heading-font-size: 1.5rem;
     --text-font-size: 1rem;
     --image-border-radius: 8px;
+    --hover-lift: scale(1.05);
   }
   
-  /* Dog Card Styling */
   .dog-card {
-    background-color: var(--card-bg-color);
-    width: var(--card-width);
-    max-width: var(--card-max-width);
-    margin: var(--card-margin);
-    padding: var(--card-padding);
-    border-radius: var(--card-border-radius);
-    box-shadow: var(--card-box-shadow);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+      background-color: var(--card-bg-color);
+      width: var(--card-width);
+      max-width: var(--card-max-width);
+      margin: 10px auto;
+      padding: var(--card-padding);
+      border-radius: var(--card-border-radius);
+      box-shadow: var(--card-shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s ease-in-out;
   }
   
-  /* Dog Card Image */
+  .dog-card:hover {
+      transform: var(--hover-lift);
+  }
+  
   .dog-card img {
-    width: 100%;
-    height: auto;
-    border-radius: var(--image-border-radius);
+      width: 100%;
+      height: auto;
+      border-radius: var(--image-border-radius);
+      border: 1px solid var(--card-border-color);
   }
   
-  /* Dog Card Heading */
   .dog-card h2 {
-    margin: 10px 0;
-    font-size: var(--heading-font-size);
-    color: var(--card-heading-color);
+      margin: 10px 0;
+      font-size: var(--heading-font-size);
+      color: var(--card-heading-color);
   }
   
-  /* Dog Card Text */
   .dog-card p {
-    margin: 5px 0;
-    font-size: var(--text-font-size);
-    color: var(--card-text-color);
+      margin: 5px 0;
+      font-size: var(--text-font-size);
+      color: var(--card-text-color);
+  }
+  
+  .dog-card button {
+      background-color: var(--card-accent-color);
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+  }
+  
+  .dog-card button:hover {
+      background-color: var(--card-accent-hover-color);
   }
   
