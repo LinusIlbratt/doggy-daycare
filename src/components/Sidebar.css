@@ -1,0 +1,99 @@
+/* Sidebar Styling */
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh; /* Ensure the sidebar spans the full height */
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+  }
+
+/* Logo */
+.sidebar-logo img {
+    width: 50px; /* Anpassa loggans storlek för små skärmar */
+    height: auto;
+    margin-bottom: 10px;
+}
+
+/* Sidebar links */
+.sidebar-links {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.sidebar-links li {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar-links li a {
+    text-decoration: none;
+    color: var(--sidebar-text-color);
+    font-size: 0.7rem; /* Mindre teckenstorlek för mobiler */
+    display: block;
+}
+
+.sidebar-links li a p {
+    margin-top: 5px;
+}
+
+.sidebar-links li a:hover {
+   transform: scale(1.1);
+}
+
+/* Ikoner för mobiler */
+.sidebar-links li svg {
+    font-size: 20px; /* Mindre storlek på ikoner för mobiler */
+}
+
+/* Main content shifts to the right of the sidebar */
+.main-content {
+    margin-left: var(--sidebar-width); /* Offset main content by sidebar width */
+    padding: 20px;
+    width: calc(100% - var(--sidebar-width)); /* Adjust content width */
+  }
+
+/* Anpassa CTA-knappar */
+button {
+    width: 100%; /* Ta upp hela bredden på små skärmar */
+    margin-bottom: 10px;
+}
+
+/* För större skärmar */
+@media (min-width: 768px) {
+    .sidebar {
+        width: 150px; /* Återställ sidebar-bredd för större skärmar */
+    }
+
+    .sidebar-logo img {
+        width: 80px;
+    }
+
+    .sidebar-links li a {
+        font-size: 1rem; /* Större text för ikoner */
+    }
+
+    .sidebar-links li svg {
+        font-size: 36px;
+    }
+
+    .main-content {
+        margin-left: 150px;
+        padding: 20px;
+        width: calc(100% - 150px);
+    }
+
+    button {
+        width: auto;
+        margin: 0 10px;
+    }
+}

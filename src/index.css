@@ -1,7 +1,4 @@
-/* Import the Poppins font from Google */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
-
-/* :root variables for colors, fonts, and basic settings */
+/* General/global styles */
 :root {
   --font-family: 'Poppins', Arial, Helvetica, sans-serif;
   --font-size-base: 1rem;
@@ -13,82 +10,35 @@
   --color-button-hover-bg: #0056b3;
   --color-text: #333;
   --color-button-text: #fff;
-
-  font-family: var(--font-family);
-  font-size: var(--font-size-base);
-  line-height: 1.5;
-  font-weight: 400;
-  color: var(--color-text);  /* Default text color */
-  background-color: var(--color-background);  /* Default background color */
-  
-  /* Optimizing font rendering */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --sidebar-bg: #2c3e50;
+  --sidebar-text-color: #ecf0f1;
+  --sidebar-link-hover: #3498db;
+  --sidebar-width: 100px;
 }
 
-/* Global reset for body */
 body {
   margin: 0;
   padding: 0;
   background-color: var(--color-background);
 }
 
-/* Root container that wraps the app */
 #root {
   width: 100%;
   margin: 0;
 }
 
-/* Main App container - flex centering if needed */
 .App {
-  max-width: 1280px;
-  margin: 0 auto;
-  text-align: center;
-  padding-top: 60px;
-  padding-left: 1rem;
-  padding-right: 1rem; /* Add padding for mobile-first approach */
+  display: flex;
 }
 
-/* Headings */
+.main-content {
+  margin-left: var(--sidebar-width);
+  padding: 20px;
+  width: calc(100% - var(--sidebar-width));
+}
+
 h1 {
   font-size: var(--font-size-large);
   line-height: 1.2;
   color: var(--color-secondary);
-}
-
-/* Buttons */
-button {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  border: none;
-  border-radius: 4px;
-  background-color: var(--color-button-bg);
-  color: var(--color-button-text);
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-button:hover {
-  background-color: var(--color-button-hover-bg);
-}
-
-button:focus {
-  outline: 2px solid var(--color-button-hover-bg);
-}
-
-/* Optional improvements */
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-/* Global links style */
-a {
-  color: var(--color-primary);
-  text-decoration: none;
-}
-
-a:hover, a:focus {
-  color: var(--color-button-hover-bg);
-  text-decoration: underline;
 }
