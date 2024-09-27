@@ -98,3 +98,22 @@
         margin: 0 10px;
     }
 }
+
+@media (max-width: 1024px) and (orientation: landscape) {
+    .sidebar {
+        width: 80px; /* Minska bredden i liggande läge */
+    }
+
+    .sidebar-links li a p {
+        display: none; /* Dölj texten för att spara utrymme */
+    }
+
+    .sidebar-links li svg {
+        font-size: 24px; /* Minska storleken på ikonerna */
+    }
+    
+    .main-content {
+        margin-left: 80px; /* Anpassa huvudinnehållet till den nya sidebar-bredden */
+        width: calc(100% - 80px);
+    }
+}
