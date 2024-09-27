@@ -9,7 +9,7 @@ Doggy Daycare är en webbapplikation byggd med React och Vite. Applikationen lå
 - Välkomstsida
 - Katalogsida med alla registrerade hundar
 - Detaljerad sida för varje hund
-- Sök- och filterfunktioner (kommande)
+- Sök- och filterfunktioner
 
 ## Installation
 För att köra projektet lokalt:
@@ -17,4 +17,3 @@ För att köra projektet lokalt:
 1. Klona detta repository:
    (terminal)
    git clone https://github.com/LinusIlbratt/doggy-daycare.git
-vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
