@@ -4,39 +4,89 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  min-height: 100vh; /* Se till att sidan tar upp hela höjden */
+  justify-content: center; /* Centrera innehållet vertikalt */
 }
 
 .register-page h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+  font-size: 1.5rem;
 }
 
 .inputForm {
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 400px;
+  max-width: 400px; /* Begränsa bredden på mindre skärmar */
   gap: 15px;
+  padding: 20px;
+  background-color: #f9f9f9; /* Bakgrundsfärg för kontrast */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Lätt skugga för djup */
+  border-radius: 8px; /* Rundade hörn */
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 20px; /* Behåll utrymme mellan varje form-grupp */
 }
 
 label {
-  margin-bottom: 5px;
+  margin-bottom: 5px; /* Avstånd mellan label och input */
+  display: block; /* Blocknivå */
+  font-size: 1.1rem; /* Lätt större text för labels */
 }
 
-input, button {
-  padding: 10px;
+input {
+  padding: 12px; /* Större padding för inmatningsfält */
   width: 100%;
   box-sizing: border-box;
+  font-size: 1rem; /* Standardstorlek på texten */
+  border: 1px solid #ccc; /* Enkel ram runt inmatningsfält */
+  border-radius: 4px; /* Lätt rundade hörn */
 }
 
 button {
+  padding: 12px;
   background-color: var(--color-primary);
+  width: 100%;
+  font-size: 1.2rem; /* Gör knappen lite större */
+  border: none;
+  border-radius: 4px; /* Rundade hörn */
+  color: white;
 }
 
 button:hover {
   background-color: var(--primary-hover-color);
+}
+
+/* Justeringar för större skärmar */
+@media (min-width: 768px) {
+  .register-page h1 {
+    font-size: 2.5rem;
+  }
+
+  .inputForm {
+    max-width: 600px; /* Öka bredden på större skärmar */
+    padding: 40px; /* Mer padding för att skapa mer utrymme */
+    gap: 20px; /* Öka mellanrum mellan fälten */
+  }
+
+  input {
+    padding: 16px; /* Större inmatningsfält */
+    font-size: 1.1rem; /* Större text för bättre läsbarhet */
+  }
+
+  button {
+    padding: 16px; /* Större knapp */
+    font-size: 1.3rem; /* Större knapptext */
+  }
+}
+
+/* Anpassning för mycket stora skärmar */
+@media (min-width: 1200px) {
+  .inputForm {
+    max-width: 800px; /* Större form för bredare skärmar */
+  }
+
+  .register-page h1 {
+    font-size: 3rem; /* Större rubrik på breda skärmar */
+  }
 }
