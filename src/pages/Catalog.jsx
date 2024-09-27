@@ -4,6 +4,7 @@ import DogCard from '../components/DogCard';
 import TextFilter from '../components/TextFilter';
 import BreedFilter from '../components/BreedFilter';
 import './Catalog.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function Catalog({ dogs }) {
   const navigate = useNavigate();
@@ -17,6 +18,8 @@ function Catalog({ dogs }) {
   const [ageFilter, setAgeFilter] = useState(searchParams.get('age') || '');
   const [sexFilter, setSexFilter] = useState(searchParams.get('sex') || '');
 
+  const [showScrollBtn, setShowScrollBtn] = useState(false);
+
   const updateURLParams = () => {
     const params = new URLSearchParams();
     if (nameFilter) params.set('name', nameFilter);
@@ -29,6 +32,26 @@ function Catalog({ dogs }) {
   useEffect(() => {
     updateURLParams();
   }, [nameFilter, breedFilter, ageFilter, sexFilter]);
+
+  // Handle scroll visibility for the button
+  const handleScroll = () => {
+    if (window.pageYOffset > 300) {
+      setShowScrollBtn(true);
+    } else {
+      setShowScrollBtn(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const filteredDogs = dogs.filter((dog) => {
     return (
@@ -104,6 +127,14 @@ function Catalog({ dogs }) {
           ))}
         </div>
       </div>
+
+      {/* Scroll to Top Button */}
+      {showScrollBtn && (
+        <div className="scroll-up-btn" onClick={scrollToTop}>
+          <i className="fas fa-angle-up"></i>
+        </div>
+      )}
+
     </div>
   );
 }

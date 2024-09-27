@@ -9,7 +9,7 @@
 
 /* Catalog Title */
 .catalog-page h1 {
-  font-size: var(--font-size-title);
+  font-size: var(--heading-font-size);
   margin-bottom: var(--spacing-medium);
   color: var(--color-text);
 }
@@ -87,10 +87,40 @@
   width: 100%;
 }
 
+/* Scroll to Top Button */
+.scroll-up-btn {
+  position: fixed;
+  bottom: 10px;
+  right: 2px;
+  background-color: var(--sidebar-bg);
+  color: white;
+  border-radius: 10%;
+  padding: 10px;
+  font-size: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.scroll-up-btn:hover {
+  background-color: #284665; /* Darker green on hover */
+}
+
+
+
 /* Media Queries for Dog List */
 @media (min-width: 768px) {
   .dog-list {
     grid-template-columns: 1fr 1fr;
+  }
+
+  /* Scroll to Top Button */
+.scroll-up-btn {  
+  right: 10px;  
+}
+
+  .catalog-page h1 {
+    font-size: var(--font-size-large);
   }
 }
 
