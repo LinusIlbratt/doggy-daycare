@@ -76,6 +76,11 @@ li {
   font-family: var(--font-family); /* Ensure all text elements use Poppins */
 }
 
+input, textarea, select {
+  font-size: 1rem; /* hinders iOS Safari to zoom */
+}
+
+
 button {
   background-color: var(--color-button-bg);
   color: var(--color-button-text);
