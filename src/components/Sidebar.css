@@ -1,7 +1,7 @@
 /* Sidebar Styling */
 .sidebar {
     width: var(--sidebar-width);
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100); /* Använd dynamisk viewport-höjd */
     background-color: var(--sidebar-bg);
     color: var(--sidebar-text-color);
     position: fixed;
@@ -72,7 +72,6 @@
     color: #dd515f;
     /* Röd */
 }
-
 
 @media (min-width: 768px) {
     .sidebar {
