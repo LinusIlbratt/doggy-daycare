@@ -7,35 +7,38 @@
 
 .register-page h1 {
   font-size: 1.5rem;
+  padding-bottom: 15px;
 }
 
-.inputForm {
+form {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: 400px;
   gap: 15px;
 }
 
+.inputForm {
+  width: 100%;
+  max-width: 400px;
+}
+
 .form-group {
-  margin-bottom: 20px; /* Behåll utrymme mellan varje form-grupp */
+  margin-bottom: 20px; 
 }
 
 label {
-  margin-bottom: 5px; /* Öka avståndet mellan label och input */
-  display: block; /* Se till att label är block-level för att ta upp hela bredden */
+  margin-bottom: 5px; 
+  display: block; 
 }
 
 input {
-  padding: 12px; /* Alternativ: öka padding om du vill ha större inmatningsfält */
+  padding: 12px;
   width: 100%;
   box-sizing: border-box;
 }
 
 button {
-  padding: 12px; /* Ge knappen lite mer padding också för konsekvent design */
   background-color: var(--color-primary);
-  width: 100%;
+  font-size: 1.15rem;
 }
 
 button:hover {
@@ -46,6 +49,19 @@ button:hover {
 @media (min-width: 768px) {    
   .register-page h1 {
     font-size: 2.5rem;
+    padding-bottom: 25px;
+  }
+
+  .inputForm {    
+    max-width: 500px;
+  }
+
+  label {
+    font-size: 1.2rem;
+  }
+
+  button {
+    font-size: 1.3rem;
   }
 }
 
