@@ -45,6 +45,13 @@ button:hover {
   background-color: var(--primary-hover-color);
 }
 
+.error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 5px;
+}
+
+
 /* Larger screen adjustments */
 @media (min-width: 768px) {    
   .register-page h1 {
